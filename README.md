@@ -6,7 +6,7 @@ Users can perform the following actions
 - Swap designs with other users
 - Like a particular designs
 
-Demo: [Oshiakwo Line]()
+Demo: [Oshiakwo Line](https://joshidakwo.github.io/oshiakwo/)
 
 ## 1. Tech Stack
 This boilerplate uses the following tech stack:
