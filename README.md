@@ -23,13 +23,13 @@ To get this project up running locally, follow these simple steps:
 ### 2.1 Clone the repository:
 
 ```bash
-git clone https://github.com/dacadeorg/celo-react-boilerplate.git
+git clone https://github.com/JoshIdakwo/oshiakwo.git
 ```
 
 ### 2.2 Navigate to the directory:
 
 ```bash
-cd celo-react-boilerplate
+cd oshiakwo
 ```
 
 ### 2.3 Install the dependencies:
@@ -46,9 +46,6 @@ npm start
 
 To properly test the dapp you will need to have a Celo wallet with testnet tokens.
 This learning module [NFT Contract Development with Hardhat](https://hackmd.io/exuZTH2hTqKytn2vxgDmcg) will walk you through the process of creating a Metamask wallet and claiming Alfajores testnet tokens.
-
-The boilerplate should behave like this:
-![](https://raw.githubusercontent.com/dacadeorg/celo-development-201/main/content/gifs/boilerplate_demo.gif)
 
 ## 3. Smart-Contract Deployment
 
