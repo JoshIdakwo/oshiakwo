@@ -1,5 +1,12 @@
-# Celo React Boilerplate
-This repository contains a simple React boilerplate for Celo projects.
+# Oshiakwo
+Oshiakwo is a decentralized marketplace build on the celo blockchain for stylist to display their different clothing lines and offer them up for sale or swap them for other styles.
+Users can perform the following actions
+- Uplaod their desired clothing line/style
+- Buy uploaded styles/designs
+- Swap designs with other users
+- Like a particular designs
+
+Demo: [Oshiakwo Line]()
 
 ## 1. Tech Stack
 This boilerplate uses the following tech stack:
