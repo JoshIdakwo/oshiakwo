@@ -3,7 +3,7 @@ import axios from "axios";
 import { ethers } from "ethers"
 
 function getAccessToken () {
-  return process.env.REACT_APP_STORAGE_API_KEY;
+  return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDExZDBkNDc4OWE2MTgzMTZjZWNkODQ5ODNjMTk1QzkwYkJGNDIwYzQiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2Njg4NTU3NzEzMTYsIm5hbWUiOiJ0ZXN0aW5nIn0.O39jjU4sel3Wz4sYxJGCrx7wFbVUBUJ-0pyZTCrilZ4";
 }
 
 function makeStorageClient () {
@@ -152,6 +152,7 @@ export const createNft = async (
     try {
       await performActions(async (kit) => {
         const {defaultAccount} = kit;
+        
         await minterContract.methods.requestSwap(style1, style2).send({ from: defaultAccount });
       })
     } catch(e) {
@@ -176,6 +177,7 @@ export const createNft = async (
         const {defaultAccount} = kit;
         const oshiakwo = await minterContract.methods.getStyles(tokenId).call();
         await minterContract.methods.buyStyle(tokenId).send({from: defaultAccount, value: oshiakwo[2] });
+        getNfts(minterContract);
       })
     } catch(e) {
       console.log(e)
