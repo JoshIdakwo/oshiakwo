@@ -3,7 +3,7 @@ import axios from "axios";
 import { ethers } from "ethers"
 
 function getAccessToken () {
-  return process.env.REACT_APP_STORAGE_API_KEY;;
+  return process.env.REACT_APP_STORAGE_API_KEY;
 }
 
 function makeStorageClient () {
