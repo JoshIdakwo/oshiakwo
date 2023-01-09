@@ -152,6 +152,7 @@ export const createNft = async (
     try {
       await performActions(async (kit) => {
         const {defaultAccount} = kit;
+        
         await minterContract.methods.requestSwap(style1, style2).send({ from: defaultAccount });
       })
     } catch(e) {
@@ -176,6 +177,7 @@ export const createNft = async (
         const {defaultAccount} = kit;
         const oshiakwo = await minterContract.methods.getStyles(tokenId).call();
         await minterContract.methods.buyStyle(tokenId).send({from: defaultAccount, value: oshiakwo[2] });
+        getNfts(minterContract);
       })
     } catch(e) {
       console.log(e)
