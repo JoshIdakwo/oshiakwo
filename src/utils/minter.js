@@ -3,7 +3,7 @@ import axios from "axios";
 import { ethers } from "ethers"
 
 function getAccessToken () {
-  return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDExZDBkNDc4OWE2MTgzMTZjZWNkODQ5ODNjMTk1QzkwYkJGNDIwYzQiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2Njg4NTU3NzEzMTYsIm5hbWUiOiJ0ZXN0aW5nIn0.O39jjU4sel3Wz4sYxJGCrx7wFbVUBUJ-0pyZTCrilZ4";
+  return process.env.REACT_APP_STORAGE_API_KEY;;
 }
 
 function makeStorageClient () {
