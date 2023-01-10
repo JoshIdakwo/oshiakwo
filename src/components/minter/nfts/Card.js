@@ -35,12 +35,10 @@ const NftCard = ({ nft, changeFav, swap, swapApprove, minterContract, buy }) => 
   }
 
   const favFunc = async() => {
-    console.log("fav");
     try {
       performActions(async(kit) => {
         const {defaultAccount} = kit;
         const isFav = await minterContract.methods.favs(index, defaultAccount).call();
-        console.log(isFav);
         setFav(isFav);
       });
     } catch (error) {
@@ -88,9 +86,9 @@ const NftCard = ({ nft, changeFav, swap, swapApprove, minterContract, buy }) => 
           <Card.Title className="border-bottom border-dark text-capitalize fw-light py-3 mb-0">{name}</Card.Title>
           <Card.Text className="border-bottom border-dark d-flex justify-content-between align-items-center py-2">
             <span className="price m-0 p-0 fs-4" style={{color: "#dd502d"}}>{price/10**18} cUSD</span>
-            <div className="d-flex">
+            <span className="d-flex">
               {isOwner(index)}
-            </div>
+            </span>
           </Card.Text>
         </Card.Body>
       </Card>

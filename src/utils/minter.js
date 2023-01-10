@@ -2,6 +2,11 @@ import { Web3Storage } from 'web3.storage/dist/bundle.esm.min.js'
 import axios from "axios";
 import { ethers } from "ethers"
 
+// Contract address to use finally
+// {
+//   "Oshiakwo": "0xbD55fc64CA3C6B0C2fDd51Cf341EB9d2EeB0F122"
+// }
+
 function getAccessToken () {
   return process.env.REACT_APP_STORAGE_API_KEY;
 }
@@ -74,18 +79,20 @@ export const createNft = async (
     // Pack files into a CAR and send to web3.storage
     const rootCid = await client.put(file) // Promise<CIDString>
 
-    if(file[0].type === "image/png") {
+    // if(file[0].type === "image/png") {
+      console.log("file...")
       let name = fileName.trim();
       if(name.includes(" ")) {
         name = name.replaceAll(" ", "%20");
       }
       return `https://${rootCid}.ipfs.w3s.link/${name}`;
-    }
+    // }
 
-    const res = await client.get(rootCid) // Promise<Web3Response | null>
-    const files = await res.files() // Promise<Web3File[]>
+    // console.log("another file")
+    // const res = await client.get(rootCid) // Promise<Web3Response | null>
+    // const files = await res.files() // Promise<Web3File[]>
   
-    return `https://${files[0].cid}.ipfs.w3s.link/`;
+    // return `https://${files[0].cid}.ipfs.w3s.link/`;
   };
 
   export const getNfts = async (minterContract) => {
