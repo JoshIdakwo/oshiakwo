@@ -10,24 +10,14 @@ import Popup from "../../ui/Popup";
 import ApproveSwap from "../../ui/ApproveSwap";
 
 const NftCard = ({ nft, changeFav, swap, swapApprove, minterContract, buy }) => {
-  const { index, image, name, price, sold, owner, swapRequest } = nft;
+  const { index, image, name, price, owner, swapRequest } = nft;
+  console.log(swapRequest);
   const { performActions, address } = useContractKit();
   const [fav, setFav] = useState(false);
 
   const isOwner = (id) => {
     if(owner === address) {
-      if(sold) {
-        return <>
-            <Popup data={(style2) => {
-              swap({...style2, id});
-              }}
-            />
-            <Button disabled className="ms-2" variant="outline-dark">Sold</Button>
-          </>
-      }
-      else {
-        return <Popup data={(style2)=> {swap({...style2, id})}}/>
-      }
+      return <Popup data={(style2) => { swap({...style2, id}); }} />
     }
     else {
       return <Button variant="outline-dark" onClick={()=>{buy({id})}}>Buy</Button>

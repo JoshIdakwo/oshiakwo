@@ -110,9 +110,8 @@ export const createNft = async (
             name: meta.data.name,
             image: meta.data.image,
             price: oshiakwo[2],
-            sold: oshiakwo[3],
-            swapRequest: oshiakwo[4],
-            fav: oshiakwo[5],
+            swapRequest: oshiakwo[3],
+            fav: oshiakwo[4],
           });
         });
         nfts.push(nft);

@@ -20,7 +20,6 @@ contract Oshiakwo is ERC721, ERC721Enumerable, ERC721URIStorage {
         address payable owner;
         string name;
         uint256 price;
-        bool sold;
         bool swapRequest;
     }
     struct Swap {
@@ -39,13 +38,11 @@ contract Oshiakwo is ERC721, ERC721Enumerable, ERC721URIStorage {
     }
 
     function storeStyle(string memory _name, uint256 _price, string memory _url) public {
-        bool _sold = false;
         bool _swapRequest = false;
         styles[_tokenIdCounter.current()] = Style (
             payable(msg.sender),
             _name,
             _price,
-            _sold,
             _swapRequest
         );
         // Style storage style = styles[_tokenIdCounter.current()];
@@ -110,12 +107,10 @@ contract Oshiakwo is ERC721, ERC721Enumerable, ERC721URIStorage {
     function buyStyle(uint256 _tokenId) public payable  {
         Style storage style = styles[_tokenId];
         require(msg.sender != style.owner, "Can't buy your own painting");
-        require(!style.sold, "Sorry, painting is already sold");
         require(msg.value >= style.price, "Invalid painting price");
 
         address _owner = style.owner;
         style.owner = payable(msg.sender);
-        style.sold = true;
 
         _transfer(_owner, msg.sender, _tokenId);
 
